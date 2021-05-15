@@ -1,8 +1,9 @@
 from pytube import YouTube as YT
 from pytube import Playlist
 import os
+import subprocess
 
-vid = os.chdir('C:\\Users\\pc\\Desktop\\Downs')
+vid = 'caminho_para_download'
 
 opc = int(input("1 = playlist\n2 = videos soltos\n->"))
 
@@ -10,12 +11,35 @@ opc = int(input("1 = playlist\n2 = videos soltos\n->"))
 #BAIXAR PLAYLIST
 
 if(opc==1):
-	enter = input("\nLink da playlist:\n->")
-	playl = Playlist(enter)
-	print("\nNúmero de videos presente: %s" %len(playl.videos_uls))
-	playl.download_all()
-	os.system("start C:/users/pc/Rush_yyz_hq.mp3")
+	form = int(input("\t0 = video\n\t1 = audio\n\t-> "))
 
+	#CRIAR PASTA PARA GUARDAR ARQUIVOS BAIXADOS
+	name = input("Nome da pasta (Sem separar caracteres)\n-> ")
+	subprocess.call('mkdir %s' %name, shell= True)
+	vid += name
+
+	enter = input("\nLink da playlist:\n-> ")
+	playl = Playlist(enter)
+
+	#DOWNLOAD EM .MP4
+	if(form == 0):
+		for video in playl.videos:
+			print('\n\tBaixando : {} -> {} \n'.format(video.title, video.watch_url))
+			video.streams.\
+			filter(type='video', progressive=True, file_extension='mp4').\
+			order_by('resolution').\
+			desc().\
+			first().\
+			download(vid)
+
+	#DOWNLOAD EM .MP4 SOMENTE AUDIO
+	if(form == 1):
+		for video in playl.videos:
+			print('\n\tBaixando : {} -> {} \n'.format(video.title, video.watch_url))
+			audio = video.streams.get_audio_only()
+			audio.download(vid)
+	if(form>1):
+		print("\nERROR\n")
 
 
 #BAIXAR-ESCOLHER VIDEO OU AUDIO
@@ -102,7 +126,3 @@ if(opc==2):
 		i+=1
 	
 	print("\t\t%d DOWNLOADS CONCLUIDOS" %(rep-1))
-
-
-
-#https://www.youtube.com/watch?v=Wfi8jY_Dm8k
