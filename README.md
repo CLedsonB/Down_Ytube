@@ -25,3 +25,19 @@ Quem for fazer download de alguns videos pode fornecer somente:
 -> o link
 -> a resoluçao que desejar 720p será a melhor resoluçao disponivel
 360p sera a segunda melhor resolucao disponivel.
+
+
+Dia 15/06 - Atualização
+
+--Código para baixar playlist está funcionando
+--Agora não é mais necessario dizer resolução para cada video escolhido para baixar
+entre com valor para resolução apenas uma vez e ele se aplicará a todos os videos
+--Após muitos teste, recomendo que trabalhe com playlists de 50 videos ou menos
+valores maiores tende a falha muito mais fácil.
+
+Dia 16/05 - Atualização
+--Você agora pode dizer por qual video da playlist o download vai começar
+sabendo que o primeiro video tem o indice 0.
+--Se o download de playlist falhar após fazer downloads de vários videos,
+você pode pegar o último indice que aparecer e usar
+para continuar o download de onde parou.
