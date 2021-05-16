@@ -4,8 +4,10 @@ import os
 import subprocess
 import time as t
 
-vid = r"D:\musicRandom\New\ "
-
+vid = r"caminho_para_download"
+#EXEMPLO
+#vid = r"C:\pasta1\pasta2\ "
+#SIM, É IMPORTANTISSIMO ESSE ESPAÇO NO FINAL
 #CRIAR PASTA NO DESTINO DE DOWNLOAD
 
 os.chdir(vid)
