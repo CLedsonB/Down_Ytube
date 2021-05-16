@@ -40,4 +40,5 @@ Dia 16/05 - Atualização
 sabendo que o primeiro video tem o indice 0.
 --Se o download de playlist falhar após fazer downloads de vários videos,
 você pode pegar o último indice que aparecer e usar
-para continuar o download de onde parou.
+para continuar o download de onde parou. (continue adicionando o mesmo nome da pasta, 
+assim eles continuaram tendo o mesmo destino).
